@@ -2,11 +2,11 @@
 layout: home
 title: Welcome
 ---
+<img src="profile_resized.jpg" alt="Trayvonious Pendleton" width="200" style="border-radius: 10px;">
 
 # Hi, I'm Trayvonious Pendleton 👋
 
-I'm a Data Scientist and Software Engineer. Below are some of my GitHub projects.
+I'm a Data Scientist and Software Engineer passionate about AI, finance, and automation.  
+I build intelligent systems that analyze data and make predictions.
 
-- [Fetching Scripts](https://github.com/trayp20/fetching_scripts)
-- [Options Watchlist](https://github.com/trayp20/options_watchlist)
-- [Earnings Analyzer](https://github.com/trayp20/earnings_data)
+
