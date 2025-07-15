@@ -1,7 +1,10 @@
 title: Trayvonious Pendleton
-description: Data Scientist & Software Engineer
-theme: minima
-header_pages:
-  - index.md
-  - about.md
-  - projects.md
+email: trayvoniouspendleton@gmail.com
+description: >-
+  Data Scientist, Software Engineer, and Financial Modeling Enthusiast.
+
+baseurl: "" # Do not change for user site
+url: "https://trayp20.github.io"
+theme: jekyll-theme-architect
+
+show_downloads: false
