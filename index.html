@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trayvonious Pendleton Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --bg-color: #121212;
@@ -56,6 +58,33 @@
       margin-bottom: 1rem;
     }
 
+    .tagline {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin: 1rem auto;
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--accent-color);
+      color: #000;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background-color: #63cfff;
+    }
+
     .social-icons {
       margin-top: 1rem;
     }
@@ -77,40 +106,50 @@
       padding-bottom: 0.5rem;
     }
 
-    .skills-grid {
+    .skills-grid,
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
     }
 
-    .project {
+    .project-card {
       background-color: var(--card-bg);
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .view-more {
-      display: block;
-      width: fit-content;
-      margin: 2rem auto 0;
-      padding: 0.75rem 1.5rem;
+    .btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
       background-color: var(--accent-color);
       color: #000;
-      text-align: center;
       border-radius: 5px;
       font-weight: bold;
     }
+
+    .btn:hover {
+      background-color: #63cfff;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .cta-button {
+        width: 100%;
+      }
+    }
   </style>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <nav>
@@ -123,118 +162,106 @@
   <header>
     <img src="569CC512-CE06-42FD-BEF3-D4ABB1CD4132.JPG" alt="Profile Picture" class="profile-pic" />
     <h1>Trayvonious Pendleton</h1>
+    <p class="tagline">Data Scientist | Machine Learning Engineer | Python & SQL Expert</p>
+    <p class="intro">With a Master’s in Data Science and a deep foundation in Computer Science, I build intelligent solutions that turn raw data into business value. My mission is to transform insights into impact through machine learning, automation, and data storytelling.</p>
+    <a href="/Trayvonious%20Pendleton%20resume.pdf" class="cta-button" target="_blank">Download Resume</a>
     <div class="social-icons">
-      <a href="mailto:trayvoniouspendleton@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/trayvonious-pendleton" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/trayp20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:trayvoniouspendleton@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/trayvonious-pendleton" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/trayp20" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </header>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I am a dedicated data professional with a Bachelor’s degree in Computer Science and a Master’s degree in Data Science. My expertise includes Python, SQL, and machine learning, skills that I utilize to develop insightful data-driven solutions. I have completed diverse projects that showcase my analytical abilities, ranging from predictive modeling and data visualization to advanced analytics. Passionate about uncovering valuable insights through data, I am actively seeking opportunities in data analytics and data science roles where I can leverage my expertise to drive informed decision-making and strategic growth.</p>
+    <p>I'm Trayvonious Pendleton a data scientist with a Master's in Data Science and a background in computer science. I specialize in building intelligent, data driven solutions using Python, SQL, and machine learning. My passion lies in turning messy data into actionable insights that drive business outcomes.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" data-aos="fade-up">
     <h2>Skills</h2>
     <div class="skills-grid">
       <div>
         <h3>Languages</h3>
-        <p>Python, SQL, Java</p>
+        <p><i class="fab fa-python"></i> Python<br><i class="fas fa-database"></i> SQL<br><i class="fab fa-java"></i> Java</p>
       </div>
       <div>
         <h3>Libraries & Frameworks</h3>
-        <p>Pandas, NumPy, Matplotlib, Seaborn, SciPy, Scikit-Learn, TensorFlow, Keras</p>
+        <p>🐼 Pandas<br>🔣 NumPy<br>📊 Matplotlib<br>🌊 Seaborn<br>🔬 SciPy<br>🤖 Scikit-Learn<br>🔢 TensorFlow<br>🧠 Keras</p>
       </div>
       <div>
         <h3>Tools & Platforms</h3>
-        <p>Jupyter Notebook, Tableau, Docker, Git, GitLab, Linux, Spring Framework, CoppeliaSim</p>
+        <p>📓 Jupyter Notebook<br>📈 Tableau<br><i class="fab fa-docker"></i> Docker<br><i class="fab fa-git-alt"></i> Git/GitLab<br>🐧 Linux<br>🌱 Spring Framework<br>🤖 CoppeliaSim</p>
       </div>
       <div>
         <h3>Databases</h3>
-        <p>PostgreSQL, MySQL</p>
+        <p>🐘 PostgreSQL<br>🗃️ MySQL</p>
       </div>
       <div>
         <h3>Certifications</h3>
-        <p>Linux Foundation, ITIL Foundation, WGU Data Analytics Professional, Data Operations, Data Science Professional</p>
+        <p>📜 Linux Foundation<br>🧩 ITIL Foundation<br>🎓 WGU Data Analytics Professional<br>📊 WGU Data Operations<br>🧪 WGU Data Science Professional</p>
       </div>
     </div>
   </section>
 
-  <section id="education">
+  <section id="education" data-aos="fade-up">
     <h2>Education</h2>
     <div class="skills-grid">
       <div>
-        <h3>Western Governors University</h3>
+        <h3><i class="fas fa-graduation-cap"></i> Western Governors University</h3>
         <p>Bachelor of Science in Computer Science</p>
       </div>
       <div>
-        <h3>Western Governors University</h3>
+        <h3><i class="fas fa-graduation-cap"></i> Western Governors University</h3>
         <p>Master of Science in Data Science</p>
       </div>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
-    <div class="skills-grid">
-      <div class="project">
-        <h3>Advanced Analytics (D604)</h3>
-        <p>Applied advanced statistical techniques and machine learning models to derive insights.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Advanced%20Analytics%20-%20D604" target="_blank">View Project</a>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Advanced Analytics </h3>
+        <p>Applied ensemble and clustering algorithms to extract insights from complex datasets.</p>
+        <ul><li>Python, Pandas, SciPy, Scikit‑Learn</li></ul>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Advanced%20Analytics%20-%20D604" class="btn" target="_blank">View GitHub</a>
       </div>
-      <div class="project">
-        <h3>Analytics Programming (D598)</h3>
-        <p>Developed data pipelines and automation scripts using Python and SQL.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Analytics%20Programming%20-%20D598" target="_blank">View Project</a>
+      <div class="project-card">
+        <h3>Data Science Capstone </h3>
+        <p>Built predictive models and dashboards for real-world business scenarios.</p>
+        <ul><li>Python, Tableau, SQL</li></ul>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Data%20Science%20Capstone%20-%20D606" class="btn" target="_blank">View GitHub</a>
       </div>
-      <div class="project">
-        <h3>Data Science Capstone (D606)</h3>
-        <p>Built predictive models from real-world data, shared insights via dashboards.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Data%20Science%20Capstone%20-%20D606" target="_blank">View Project</a>
+      <div class="project-card">
+        <h3>Machine Learning </h3>
+        <p>Developed ML pipelines with regression, classification, and neural network models.</p>
+        <ul><li>Python, Scikit‑Learn, Keras</li></ul>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Machine%20Learning%20-%20D603" class="btn" target="_blank">View GitHub</a>
       </div>
-      <div class="project">
-        <h3>Optimization (D605)</h3>
-        <p>Used optimization algorithms to solve resource allocation and scheduling problems.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Optimization%20-%20D605" target="_blank">View Project</a>
+      <div class="project-card">
+        <h3>Optimization </h3>
+        <p>Used linear programming to optimize logistics and resource allocation problems.</p>
+        <ul><li>Python, PuLP</li></ul>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Optimization%20-%20D605" class="btn" target="_blank">View GitHub</a>
       </div>
-      <div class="project">
-        <h3>Data Management (D597)</h3>
-        <p>Designed and managed database systems, optimized performance, ensured data integrity.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/DATA%20MANAGEMENT-D597" target="_blank">View Project</a>
+      <div class="project-card">
+        <h3>Computer Science Capstone </h3>
+        <p>Designed and implemented a full-stack software solution for real-world application.</p>
+        <ul><li>Python, Git, Flask</li></ul>
+        <a href="https://github.com/trayp20/Computer-Science-Capstone-C964" class="btn" target="_blank">View GitHub</a>
       </div>
-      <div class="project">
-        <h3>Data Preparation and Exploration (D599)</h3>
-        <p>Led data cleaning, transformation, and exploratory analysis using Python tools.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Data%20Preparation%20and%20Exploration%20-%20D599" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>Data Storytelling for Varied Audiences (D601)</h3>
-        <p>Crafted visualizations and narratives for both technical and non-technical stakeholders.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Data%20Storytelling%20for%20Varied%20Audiences%20-%20D601" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>Deployment (D602)</h3>
-        <p>Packaged and deployed models, automated data ingestion, monitored production pipelines.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Deployment%20-%20D602" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>Machine Learning (D603)</h3>
-        <p>Created full ML pipelines and models including regression, trees, and neural networks.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Machine%20Learning%20-%20D603" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>Statistical Data Mining (D600)</h3>
-        <p>Used statistical techniques to extract insights from large datasets.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Statistical%20Data%20Mining%20-%20D600" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>The Data Analytics Journey (D596)</h3>
-        <p>Explored the entire data analytics lifecycle from scoping to delivery.</p>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/THE%20DATA%20ANALYTICS%20JOURNEY-D596" target="_blank">View Project</a>
+      <div class="project-card">
+        <h3>Data Structures & Algorithms </h3>
+        <p>Implemented algorithms and data structures to solve routing and optimization problems.</p>
+        <ul><li>Python, Graph Theory</li></ul>
+        <a href="https://github.com/trayp20/Data-Structure-and-Algorithms-2-C950" class="btn" target="_blank">View GitHub</a>
       </div>
     </div>
-    <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS" target="_blank" class="view-more">View More Projects</a>
   </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
