@@ -14,6 +14,7 @@ The website includes the following sections:
 ## Technologies Used
 - HTML
 - CSS
+- JavaScript
 - FontAwesome (for icons)
 - AOS (Animate On Scroll library for animations)
 
