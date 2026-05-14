@@ -1,29 +1,25 @@
-# Trayvonious Pendleton Portfolio
+# Trayvonious Pendleton — Portfolio
 
-## Overview
-A personal portfolio website showcasing the skills, experience, education, and projects of Trayvonious Pendleton, a Data Scientist and Machine Learning Engineer.
+**Data Analyst | Analytics Engineer | Data Scientist**
 
-## Features
-The website includes the following sections:
-- **About**: A brief introduction to Trayvonious.
-- **Skills**: A comprehensive list of programming languages, libraries, frameworks, tools, platforms, databases, and certifications.
-- **Experience**: Professional experience detailing work history.
-- **Education**: Academic background and degrees.
-- **Projects**: A showcase of various data science and computer science projects with links to their respective GitHub repositories.
+Dual master's degrees in Data Science and Computer Science. Nine years of experience turning complex data into actionable intelligence — building ML models, designing analytics pipelines, and driving business outcomes with Python, SQL, and TensorFlow.
 
-## Technologies Used
-- HTML
-- CSS
-- JavaScript
-- FontAwesome (for icons)
-- AOS (Animate On Scroll library for animations)
+👉 **[View Portfolio](https://trayp20.github.io)**
 
-## How to Run Locally
-1. Clone the repository.
-2. Open the `index.html` file in any modern web browser.
+### Featured Projects
 
-Alternatively, you can serve it using a local HTTP server. For example, if you have Python installed, you can run:
-```bash
-python -m http.server 8000
-```
-Then navigate to `http://localhost:8000` in your web browser.
+- **Reinforcement Learning Trading Agent** — Deep RL (PPO/DQN) for SPY ETF trading, outperforming buy-and-hold
+- **PlantVision CNN** — 95% accurate seedling classifier using transfer learning
+- **SentimentNet NLP** — LSTM-based financial sentiment analysis (87% F1)
+- **Churn Revenue Forecasting** — ARIMA time-series models for retention strategy
+- **Chicago Crime EDA** — End-to-end ETL pipeline on 7M+ records
+
+### Tech Stack
+
+`Python` `SQL` `TensorFlow` `Keras` `Scikit-Learn` `Pandas` `NumPy` `PostgreSQL` `MySQL` `Tableau` `Docker` `Git` `Linux`
+
+### Contact
+
+- 📧 trayvoniouspendleton@gmail.com
+- 🔗 [LinkedIn](https://www.linkedin.com/in/trayvonious-pendleton)
+- 💻 [GitHub](https://github.com/trayp20)

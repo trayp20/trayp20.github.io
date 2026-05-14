@@ -3,286 +3,433 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trayvonious Pendleton Portfolio</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Trayvonious Pendleton — Data & ML Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-color: #121212;
-      --text-color: #f0f0f0;
-      --accent-color: #4db8ff;
-      --card-bg: #1e1e1e;
+      --bg: #0a0a0f;
+      --surface: #14141e;
+      --card: #1c1c2a;
+      --text: #e8e8f0;
+      --text-secondary: #a0a0b8;
+      --accent: #4db8ff;
+      --accent-dim: #2d7ab0;
+      --border: #2a2a3a;
     }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
-
     nav {
-      background-color: #1a1a1a;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 2rem;
+      display: flex; justify-content: center; gap: 2rem;
     }
-
     nav a {
-      margin: 0 1rem;
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: bold;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; transition: color 0.2s;
+      letter-spacing: 0.3px;
     }
+    nav a:hover { color: var(--accent); }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    main { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
 
-    header, section {
-      padding: 2rem;
-    }
-
-    header {
+    /* Hero */
+    #hero {
+      padding: 8rem 0 4rem;
       text-align: center;
     }
-
-    img.profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
+    #hero h1 {
+      font-size: 2.8rem; font-weight: 800;
+      background: linear-gradient(135deg, #fff 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    #hero .tagline {
+      font-size: 1.15rem; color: var(--text-secondary);
       margin-bottom: 1rem;
     }
+    #hero .tagline span { color: var(--accent); }
+    #hero .intro {
+      max-width: 640px; margin: 0 auto 1.5rem;
+      font-size: 0.95rem; color: var(--text-secondary);
+    }
+    .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.6rem 1.3rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent); color: #000;
+    }
+    .btn-primary:hover { background: #6dc8ff; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-socials { margin-top: 1.5rem; display: flex; gap: 1.25rem; justify-content: center; }
+    .hero-socials a {
+      color: var(--text-secondary); font-size: 1.3rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .hero-socials a:hover { color: var(--accent); transform: translateY(-2px); }
 
-    .tagline {
-      font-size: 1.25rem;
-      margin-top: 0.5rem;
-      font-style: italic;
+    /* Sections */
+    section { padding: 3.5rem 0; }
+    .section-title {
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .section-title i { color: var(--accent); font-size: 1rem; }
+
+    /* About */
+    #about p {
+      color: var(--text-secondary); font-size: 0.95rem;
+      max-width: 720px;
     }
 
-    .intro {
-      max-width: 600px;
-      margin: 1rem auto;
-      font-size: 1.1rem;
-      color: #cccccc;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--accent-color);
-      color: #000;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .cta-button:hover {
-      background-color: #63cfff;
-    }
-
-    .social-icons {
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      margin: 0 0.5rem;
-      color: var(--accent-color);
-      font-size: 1.5rem;
-      display: inline-block;
-    }
-
-    .social-icons a:hover {
-      color: #ffffff;
-    }
-
-    h2 {
-      color: var(--accent-color);
-      border-bottom: 1px solid var(--accent-color);
-      padding-bottom: 0.5rem;
-    }
-
-    .skills-grid,
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Skills */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem;
+    }
+    .skill-card h3 {
+      font-size: 0.85rem; font-weight: 600; color: var(--accent);
+      margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag {
+      background: rgba(77,184,255,0.1); color: var(--accent);
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+      font-size: 0.78rem; font-weight: 500;
+    }
 
+    /* Experience */
+    .exp-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.3rem; margin-bottom: 1rem;
+    }
+    .exp-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; margin-bottom: 0.4rem;
+    }
+    .exp-header h3 { font-size: 1rem; font-weight: 600; }
+    .exp-header .date { font-size: 0.8rem; color: var(--text-secondary); }
+    .exp-company { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+    .exp-item ul { list-style: none; padding: 0; }
+    .exp-item ul li {
+      font-size: 0.85rem; color: var(--text-secondary);
+      padding-left: 1rem; position: relative; margin-bottom: 0.3rem;
+    }
+    .exp-item ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.55rem;
+      width: 5px; height: 5px; background: var(--accent-dim);
+      border-radius: 50%;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
     .project-card {
-      background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.4rem;
+      transition: transform 0.2s, border-color 0.2s;
     }
-
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px); border-color: var(--accent-dim);
+    }
+    .project-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+    .project-tech span {
+      font-size: 0.7rem; background: rgba(77,184,255,0.08);
+      color: var(--accent); padding: 0.15rem 0.5rem; border-radius: 4px;
+    }
+    .project-card p { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.8rem; }
+    .project-card .btn-small {
+      font-size: 0.78rem; color: var(--accent); text-decoration: none;
+      font-weight: 500; display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+    .project-card .btn-small:hover { text-decoration: underline; }
+
+    /* Education */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem;
+    }
+    .edu-card h3 { font-size: 0.9rem; font-weight: 600; }
+    .edu-card p { font-size: 0.82rem; color: var(--text-secondary); }
+    .edu-card .year { font-size: 0.78rem; color: var(--accent-dim); font-weight: 500; margin-top: 0.3rem; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 2rem; color: var(--text-secondary);
+      font-size: 0.8rem; border-top: 1px solid var(--border);
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.5rem 1rem;
-      background-color: var(--accent-color);
-      color: #000;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background-color: #63cfff;
-    }
-
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      .cta-button {
-        width: 100%;
-      }
+    @media (max-width: 640px) {
+      nav { gap: 1rem; padding: 0.6rem 1rem; }
+      #hero { padding: 6rem 0 3rem; }
+      #hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-  </nav>
 
-  <header>
-    <img src="569CC512-CE06-42FD-BEF3-D4ABB1CD4132.JPG" alt="Profile Picture" class="profile-pic" />
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+</nav>
+
+<main>
+  <!-- Hero -->
+  <section id="hero">
     <h1>Trayvonious Pendleton</h1>
-    <p class="tagline">Data Scientist | Machine Learning Engineer | Python & SQL Expert</p>
-    <p class="intro">With a Master’s in Data Science and a deep foundation in Computer Science, I build intelligent solutions that turn raw data into business value. My mission is to transform insights into impact through machine learning, automation, and data storytelling.</p>
-    <a href="/Trayvonious%20Pendleton%20resume.pdf" class="cta-button" target="_blank">Download Resume</a>
-    <div class="social-icons">
-      <a href="mailto:trayvoniouspendleton@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/trayvonious-pendleton" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/trayp20" target="_blank"><i class="fab fa-github"></i></a>
+    <p class="tagline">
+      <span>Data Analyst</span> &middot;
+      <span>Analytics Engineer</span> &middot;
+      <span>Data Scientist</span>
+    </p>
+    <p class="intro">
+      Dual master's degrees in Data Science and Computer Science. Nine years of experience
+      transforming complex data into actionable intelligence, building ML models, and designing
+      analytics infrastructure. Python, SQL, TensorFlow, and a track record of results.
+    </p>
+    <div class="hero-actions">
+      <a href="/Trayvonious_Pendleton_Resume.pdf" class="btn btn-primary" target="_blank">
+        <i class="fas fa-file-pdf"></i> Resume
+      </a>
+      <a href="https://github.com/trayp20" class="btn btn-outline" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
     </div>
-  </header>
-
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I'm Trayvonious Pendleton a data scientist with a Master's in Data Science and a background in computer science. I specialize in building intelligent, data driven solutions using Python, SQL, and machine learning. My passion lies in turning messy data into actionable insights that drive business outcomes.</p>
+    <div class="hero-socials">
+      <a href="mailto:trayvoniouspendleton@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/trayvonious-pendleton" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/trayp20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
   </section>
 
-  <section id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+    <p>
+      I'm a data professional who lives at the intersection of analytics, engineering, and machine learning.
+      With a BS in Computer Science and dual MS degrees (Data Science &bull; CS in progress), I've spent nine
+      years turning messy operational data into clear, impactful decisions. Whether it's building a deep RL
+      trading agent that beats buy-and-hold, designing normalized PostgreSQL schemas for ETL pipelines, or
+      creating KPI dashboards that drive revenue, I bring engineering rigor and business thinking to every
+      project. Currently expanding into MLOps and advanced ML systems.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title"><i class="fas fa-code"></i> Technical Skills</h2>
     <div class="skills-grid">
-      <div>
+      <div class="skill-card">
         <h3>Languages</h3>
-        <p><i class="fab fa-python"></i> Python<br><i class="fas fa-database"></i> SQL<br><i class="fab fa-java"></i> Java</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Java</span>
+        </div>
       </div>
-      <div>
-        <h3>Libraries & Frameworks</h3>
-        <p>🐼 Pandas<br>🔣 NumPy<br>📊 Matplotlib<br>🌊 Seaborn<br>🔬 SciPy<br>🤖 Scikit-Learn<br>🔢 TensorFlow<br>🧠 Keras</p>
+      <div class="skill-card">
+        <h3>ML / AI</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Keras</span>
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">Stable-Baselines3</span>
+          <span class="skill-tag">LSTM</span>
+          <span class="skill-tag">CNN</span>
+        </div>
       </div>
-      <div>
-        <h3>Tools & Platforms</h3>
-        <p>📓 Jupyter Notebook<br>📈 Tableau<br><i class="fab fa-docker"></i> Docker<br><i class="fab fa-git-alt"></i> Git/GitLab<br>🐧 Linux<br>🌱 Spring Framework<br>🤖 CoppeliaSim</p>
+      <div class="skill-card">
+        <h3>Data & Analytics</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas / NumPy</span>
+          <span class="skill-tag">Matplotlib / Seaborn</span>
+          <span class="skill-tag">SciPy</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Jupyter</span>
+          <span class="skill-tag">Excel (Advanced)</span>
+        </div>
       </div>
-      <div>
+      <div class="skill-card">
         <h3>Databases</h3>
-        <p>🐘 PostgreSQL<br>🗃️ MySQL</p>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Window Functions</span>
+          <span class="skill-tag">CTEs</span>
+          <span class="skill-tag">Query Optimization</span>
+        </div>
       </div>
-      <div>
+      <div class="skill-card">
+        <h3>Engineering & DevOps</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git / GitLab</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">dbt</span>
+          <span class="skill-tag">ETL Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-card">
         <h3>Certifications</h3>
-        <p>📜 Linux Foundation<br>🧩 ITIL Foundation<br>🎓 WGU Data Analytics Professional<br>📊 WGU Data Operations<br>🧪 WGU Data Science Professional</p>
+        <div class="skill-tags">
+          <span class="skill-tag">LFCS</span>
+          <span class="skill-tag">ITIL Foundation</span>
+          <span class="skill-tag">WGU Data Analytics</span>
+          <span class="skill-tag">WGU Data Science</span>
+          <span class="skill-tag">WGU Data Operations</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="experience" data-aos="fade-up">
-  <h2>Professional Experience</h2>
-  <div class="skills-grid">
-    <div>
-      <h3><i class="fas fa-briefcase"></i> Lederman Bail Bond – Waterloo, IA</h3>
-      <p><strong>Data Analyst</strong><br>2016 – 2025</p>
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Data Analyst / Analytics Engineer / Data Scientist</h3>
+        <span class="date">2016 &ndash; 2025</span>
+      </div>
+      <div class="exp-company">Lederman Bail Bond &mdash; Davenport, IA</div>
       <ul>
-        <li>Collaborated with internal stakeholders to ensure regulatory compliance and streamline data collection processes for surety bond approvals.</li>
-        <li>Built and maintained operational tracking tools in Excel, improving court scheduling efficiency and reducing administrative overhead.</li>
-        <li>Created custom reports and dashboards to monitor KPIs such as competitor performance and regional efficiency, enabling data-driven decision-making.</li>
+        <li>Built automated KPI dashboards and predictive models across 300+ accounts, driving a <strong>10% revenue increase</strong> and reducing manual reporting by <strong>30%</strong>.</li>
+        <li>Designed PostgreSQL schemas and automated ETL pipelines, consolidating disparate data sources and reducing upstream errors by <strong>25%</strong>.</li>
+        <li>Developed ARIMA time-series forecasts for revenue trends and churn analysis, informing data-driven retention strategies.</li>
+        <li>Collaborated with cross-functional teams on data validation, metric standardization, and approval workflows, cutting turnaround time by <strong>20%</strong>.</li>
       </ul>
     </div>
-  </div>
-</section>
-
- <section id="education" data-aos="fade-up">
-    <h2>Education</h2>
-    <div class="skills-grid">
-      <div>
-        <h3><i class="fas fa-graduation-cap"></i> Western Governors University</h3>
-        <p>Bachelor of Science in Computer Science</p>
-      </div>
-      <div>
-        <h3><i class="fas fa-graduation-cap"></i> Western Governors University</h3>
-        <p>Master of Science in Data Science</p>
-      </div>
-      <div>
-        <h3><i class="fas fa-graduation-cap"></i> Western Governors University</h3>
-        <p>Master of Science in Software Engineering-Al Engineering        Present-2016</p>
-      </div>
-    </div>
-    
   </section>
 
-  <section id="projects" data-aos="fade-up">
-    <h2>Projects</h2>
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title"><i class="fas fa-flask"></i> Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3>Advanced Analytics </h3>
-        <p>Applied ensemble and clustering algorithms to extract insights from complex datasets.</p>
-        <ul><li>Python, Pandas, SciPy, Scikit‑Learn</li></ul>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Advanced%20Analytics%20-%20D604" class="btn" target="_blank">View GitHub</a>
+        <h3>Reinforcement Learning Trading Agent</h3>
+        <div class="project-tech">
+          <span>Stable-Baselines3</span><span>Python</span><span>Yahoo Finance</span><span>PPO</span><span>DQN</span>
+        </div>
+        <p>Deep RL agent for SPY ETF trading that outperformed buy-and-hold on Sharpe ratio, cumulative return, and max drawdown. Built custom backtesting environment with interactive visualizations.</p>
+        <a href="https://github.com/trayp20/Computer-Science-Capstone-C964" class="btn-small" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
+
       <div class="project-card">
-        <h3>Data Science Capstone </h3>
-        <p>Built predictive models and dashboards for real-world business scenarios.</p>
-        <ul><li>Python, Tableau, SQL</li></ul>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Data%20Science%20Capstone%20-%20D606" class="btn" target="_blank">View GitHub</a>
+        <h3>PlantVision &mdash; CNN Seedling Classifier</h3>
+        <div class="project-tech">
+          <span>TensorFlow</span><span>Keras</span><span>OpenCV</span><span>CNN</span><span>Transfer Learning</span>
+        </div>
+        <p>Convolutional neural network classifying 12 plant seedling species from RGB imagery. Achieved <strong>95% accuracy</strong> through data augmentation and transfer learning techniques.</p>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS" class="btn-small" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
+
       <div class="project-card">
-        <h3>Machine Learning </h3>
-        <p>Developed ML pipelines with regression, classification, and neural network models.</p>
-        <ul><li>Python, Scikit‑Learn, Keras</li></ul>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Machine%20Learning%20-%20D603" class="btn" target="_blank">View GitHub</a>
+        <h3>SentimentNet &mdash; NLP Sentiment Analysis</h3>
+        <div class="project-tech">
+          <span>TensorFlow</span><span>LSTM</span><span>NLTK</span><span>NLP</span><span>Deep Learning</span>
+        </div>
+        <p>LSTM-based neural network for financial news sentiment classification. Achieved <strong>87% F1-score</strong> with strong generalization on unseen data.</p>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS" class="btn-small" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
+
       <div class="project-card">
-        <h3>Optimization </h3>
-        <p>Used linear programming to optimize logistics and resource allocation problems.</p>
-        <ul><li>Python, PuLP</li></ul>
-        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS/tree/main/Optimization%20-%20D605" class="btn" target="_blank">View GitHub</a>
+        <h3>Mega Millions Predictor</h3>
+        <div class="project-tech">
+          <span>TensorFlow</span><span>Streamlit</span><span>Python</span><span>Neural Network</span>
+        </div>
+        <p>Streamlit web app with a TensorFlow neural network trained on historical lottery draws to predict Mega Ball numbers based on user-selected white balls.</p>
+        <a href="https://github.com/trayp20/Mega-Millions" class="btn-small" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
+
       <div class="project-card">
-        <h3>Computer Science Capstone </h3>
-        <p>Designed and implemented a full-stack software solution for real-world application.</p>
-        <ul><li>Python, Git, Flask</li></ul>
-        <a href="https://github.com/trayp20/Computer-Science-Capstone-C964" class="btn" target="_blank">View GitHub</a>
+        <h3>Chicago Crime EDA</h3>
+        <div class="project-tech">
+          <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>SQL</span><span>ETL</span>
+        </div>
+        <p>End-to-end exploratory data analysis pipeline on 7M+ Chicago crime records. Cleaned, transformed, and visualized crime trends with automated reporting.</p>
+        <a href="https://github.com/trayp20/Chicago-Crime" class="btn-small" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
+
       <div class="project-card">
-        <h3>Data Structures & Algorithms </h3>
-        <p>Implemented algorithms and data structures to solve routing and optimization problems.</p>
-        <ul><li>Python, Graph Theory</li></ul>
-        <a href="https://github.com/trayp20/Data-Structure-and-Algorithms-2-C950" class="btn" target="_blank">View GitHub</a>
+        <h3>Churn Revenue Forecasting</h3>
+        <div class="project-tech">
+          <span>ARIMA</span><span>Pandas</span><span>Python</span><span>Time Series</span>
+        </div>
+        <p>ARIMA-based time series forecasting to predict quarterly churn revenue impact, enabling proactive customer retention strategies.</p>
+        <a href="https://github.com/trayp20/MSDA_DATA_ANALYTICS" class="btn-small" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
     </div>
   </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
+  <!-- Education -->
+  <section id="education">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>M.S. Computer Science</h3>
+        <p>Western Governors University</p>
+        <div class="year">Expected 2026</div>
+      </div>
+      <div class="edu-card">
+        <h3>M.S. Data Analytics &amp; Data Science</h3>
+        <p>Western Governors University</p>
+        <div class="year">2024</div>
+      </div>
+      <div class="edu-card">
+        <h3>B.S. Computer Science</h3>
+        <p>Western Governors University</p>
+        <div class="year">2021</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 Trayvonious Pendleton &mdash; Built with <i class="fas fa-heart" style="color:#e25555;"></i>
+</footer>
+
 </body>
 </html>
